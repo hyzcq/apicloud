@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+
+<body>
+    <header>
+        <a class="back" onclick="closeWin()"></a>
+        <span>{{title}}</span>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/fastclick.min.js"></script>
+<script type="text/javascript" src="../script/vue.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script>
+    var vm = new Vue({
+        el: 'header',
+        data: function() {
+            return {
+                title: '',
+                titles: {
+                    address: '收货地址',
+                    addressAdd: '地址编辑',
+                    brand: '品牌',
+                    brandDetail: '品牌详情',
+                    cart: '购物车',
+                    catalog: '分类',
+                    category: '分类',
+                    checkout: '确认订单',
+                    collect: '我的收藏',
+                    comment: '商品评论',
+                    commentPost: '提交评论',
+                    coupon: '优惠券',
+                    detail: '商品详情',
+                    express: '物流查询',
+                    feedback: '意见反馈',
+                    footprint: '我的足迹',
+                    hotGoods: '人气推荐',
+                    newGoods: '新品',
+                    order: '我的订单',
+                    orderDetail: '订单详情',
+                    pay: '支付方式',
+                    payResult: '支付结果',
+                    search: '搜索',
+                    topic: '专题',
+                    topicComment: '专题评论',
+                    topicDetail: '专题详情',
+                }
+            }
+        },
+        mounted: function() {
+            var self = this;
+            $.ready(function() {
+                var pageParam = api.pageParam;
+                self.title = self.titles[pageParam.pageName];
+                api.openFrame({
+                    name: pageParam.pageName + 'frame',
+                    url: 'widget://html/' + pageParam.pageName + '.html',
+                    bgColor: '#ffffff',
+                    bounces: false,
+                    rect: {
+                        x: 0,
+                        y: $api.dom('header').offsetHeight,
+                        w: api.winWidth,
+                        h: api.winHeight - $api.dom('header').offsetHeight
+                    },
+                    hScrollBarEnabled: false,
+                    vScrollBarEnabled: false,
+                    pageParam: pageParam
+                });
+                if(pageParam.pageName == 'detail'){
+                    pageParam.height = $api.dom('header').offsetHeight;
+                    api.setFrameAttr({
+                        name: pageParam.pageName + 'frame',
+                        rect: {
+                            h: api.winHeight - $api.dom('header').offsetHeight - 50
+                        }
+                    });
+                    api.openFrame({
+                        name: 'detailBottom',
+                        url: 'widget://html/detailBottom.html',
+                        bgColor: '#ffffff',
+                        bounces: false,
+                        rect: {
+                            x: 0,
+                            y: api.winHeight - 50,
+                            w: api.winWidth,
+                            h: 50
+                        },
+                        hScrollBarEnabled: false,
+                        vScrollBarEnabled: false,
+                        pageParam: pageParam
+                    });
+                }
+            })
+        }
+    })
+</script>
+
+</html>

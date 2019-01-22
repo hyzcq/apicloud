@@ -1,2 +1,0 @@
-# apicloud
-apicloud template

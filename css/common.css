@@ -1,0 +1,218 @@
+html,h1,h2,h3,h4,h5,h6,div,body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,p,form,input,textarea,button,th,td{
+	margin:0;
+	padding:0;
+	font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+}
+*{
+	-webkit-touch-callout:none;
+    -moz-touch-callout:none;
+    -ms-touch-callout:none;
+    touch-callout:none;
+	box-sizing: border-box;
+}
+img,iframe{border:0;max-width: 100%;}
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed}
+ol,ul{list-style:none outside none}
+em,strong,i{font-style:normal;font-weight:bold}
+
+/*input 去掉chrome选中input时的外边框*/
+input,a,button,textarea{outline:none;border:0;text-decoration:none;}
+html,body{
+	-webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-overflow-scrolling : touch;
+    max-width: 750px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+html{
+	font-size: calc(100vw / 7.5);
+}
+body{
+	min-height: 100vh;
+}
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 42.6667px;
+    }
+}
+@media screen and (min-width: 540px) {
+    html {
+        font-size: 108px;
+    }
+}
+body,div,ul,li,a,p,h4{
+    font-size: 14px;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+.pull-left{
+	float: left!important;
+}
+.pull-right{
+	float: right!important;
+}
+.clear:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.text-ellipsis{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text-ellipsis2{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.text-ellipsis3{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* 隐藏, 通常用来与 JS 配合 */
+.hide {
+    display: none;
+}
+/* 设置文本对齐方式*/
+.text-left {
+    text-align: left!important;
+}
+.text-center {
+    text-align: center!important;
+}
+.text-right {
+    text-align: right!important;
+}
+.small {
+    font-size: .8em;
+}
+.strong {
+    font-size: 1.2em;
+}
+/*头部*/
+header {
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    background: #fff;
+    border-bottom:1px solid #eee;
+	text-align: center;
+	color: #666;
+}
+header .back{
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    background: url(../image/back.png) no-repeat center center;
+    background-size: auto 50%;
+}
+.img_head {
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.img_head .info {
+    width: .13rem;
+    height: .13rem;
+    border-radius: 50%;
+    background: rgba(239, 44, 58, 1);
+    position: absolute;
+    right: .2rem;
+    top: .3rem;
+}
+
+.img_head img {
+    margin-top: .27rem;
+    width: .43rem;
+}
+
+.modal {
+    width: 7.5rem;
+    height: 100%;
+    background: rgba(0, 0, 0, .35);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+/*图片过渡动画*/
+.anim-opacity {
+    animation: anim_opacity .1s;
+    -webkit-animation: anim_opacity .1s;
+}
+
+@keyframes anim_opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes anim_opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*图片等比例缩放,占满宽高,取中间显示*/
+.img-cover {
+	background-position: center;
+	background-size: cover!important;
+	background-repeat: no-repeat;
+}
+/*等比例缩放,宽高至少占满一边,显示全部*/
+.img-contain {
+	background-position: center;
+	background-size: contain!important;
+	background-repeat: no-repeat;
+}
+
+.load_more {
+	width: 100%;
+	height: .8rem;
+	line-height: .8rem;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.load_more img {
+	width: .3rem;
+	height: .3rem;
+	display: inline-block;
+	margin-top: .2rem;
+	margin-right: .2rem;
+}
+
+.load_more span {
+	font-size: .26rem;
+	display: inline-block;
+	position: relative;
+	top: -.06rem;
+}
+.swiper-pagination-bullet-active{
+	background: #b4282d;
+}
